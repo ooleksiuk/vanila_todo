@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla JavaScript Todo App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- <div class="item"> -->
+      <h3>Your Todos</h3>
+      <!-- </div> -->
+      <div id="item-container">
+        <div class="item">
+          <div class="check-box">
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+          </div>
+          <label for="vehicle1"> I have a bike</label>
+          <!-- <div class="todo-text">I have a bike</div> -->
+        </div>
+      </div>
+      <form class="item-main" onsubmit="AddTodoItem(); return false;">
+        <input
+          type="text"
+          placeholder="Add new item"
+          id="input-text"
+          class="add-input"
+        />
+        <input type="radio" style="background-color: blue" id="r1" />
+        <input type="radio" style="background-color: #ffa400" id="r2" />
+        <input type="radio" style="background-color: green" id="r3" />
+        <input type="radio" style="background-color: red" id="r4" />
+        <input type="radio" style="background-color: #00d669" id="r5" />
+        <input
+          type="radio"
+          style="background-color: #530cff"
+          name=""
+          id=""
+          checked
+        />
+        <button type="submit">Add</button>
+      </form>
+    </div>
+
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

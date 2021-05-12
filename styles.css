@@ -1,0 +1,120 @@
+
+.container{
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  /* align-items:center; */
+  width: 600px;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+
+.item-main{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid grey;;
+  padding: 10px;
+}
+
+
+
+.item{
+  /* padding: 10px; */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin: 5px 0px;
+  height: 45px;
+}
+
+.item label{
+  flex:1;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: lawngreen;
+}
+
+/* .todo-text {
+  flex:1;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: lawngreen;
+} */
+
+h3 {
+   align-self: flex-start;
+   margin: 5px;
+}
+
+.check-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 45px;
+  background-color: lawngreen;
+  width: 45px;
+  margin-right: 5px;
+}
+
+.add-input{
+  border: 2px solid lightslategray;
+  flex-grow: 4;
+}
+
+input[type="text"]{
+  align-items: flex-start;
+  height: 30px;
+  outline: 0;
+  border: none;
+  font-size: 1rem;
+  font-family: 'Relaway', sans-serif;
+
+}
+
+input[type="radio"]{
+  box-sizing: border-box;
+  appearance: none;
+  /* outline: none; */
+  border: none;
+  width: 16px;
+  height: 16px;
+}
+
+
+input[type="checkbox"]{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+input[type="checkbox"]:checked{
+  background-color: #ccc ;  
+}
+
+input[type="radio"]:checked{
+  border-color: #0b76ef;
+  background-color: crimson;
+}
+
+
+
+button {
+  background-color:teal;
+  outline: 0;
+  border: none;
+  border-radius: 3px;
+  margin-left: 10px;
+  padding: 10px;
+  font: 0.8em sans-serif;
+  color: white;
+}
