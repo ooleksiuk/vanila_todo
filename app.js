@@ -22,7 +22,8 @@
 //   form.appendChild(newInput);
 // }
 
-function AddTodoItem() {
+function addTodoItem() {
+  const color = checkColor();
   const itemContent = document.getElementById('input-text').value;
   const itemContainer = document.getElementById('item-container');
 
@@ -31,10 +32,12 @@ function AddTodoItem() {
 
   const checkboxDiv = document.createElement('div');
   checkboxDiv.className = 'check-box';
+  checkboxDiv.setAttribute('style', `background-color:${color}`);
   checkboxDiv.appendChild(checkbox);
 
   const label = document.createElement('label');
   label.innerText = itemContent;
+  label.setAttribute('style', `background-color:${color}`);
 
   const item = document.createElement('div');
   item.className = 'item';
@@ -42,4 +45,14 @@ function AddTodoItem() {
   item.appendChild(label);
 
   itemContainer.appendChild(item);
+}
+
+function checkColor() {
+  const radios = document.querySelectorAll('input[type="radio"]');
+  for (let r of radios) {
+    if (r.checked) {
+      r.checked = false;
+      return (color = r.style.backgroundColor);
+    }
+  }
 }
