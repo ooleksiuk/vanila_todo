@@ -6,7 +6,7 @@ const array = [
   'color-light-green',
   'color-deep-blue ',
 ];
-var id = 1;
+let id = 1;
 
 // ******************* Selectors
 const todoInput = document.getElementById('input-text');
@@ -57,16 +57,17 @@ function addTodoItem() {
 }
 
 function checkColor() {
-  const radios = document.querySelectorAll('input[type="radio"]');
-  for (let r of radios) {
-    if (r.checked) {
-      r.checked = false;
-      // radios[radios.length - 1].checked = true;
-      return r.className;
-    }
-  }
+  const radio = document.querySelector('input[type="radio"]:checked');
+  // for (let r of radios) {
+  //   if (r.checked) {
+  //     r.checked = false;
+  //     // radios[radios.length - 1].checked = true;
+  //     return r.className;
+  //   }
+  // }
   return (color = array[Math.floor(Math.random() * array.length)]);
 }
+// `cd-div${id}`
 
 function itemCompleted(e) {
   const id = e.target.id;
