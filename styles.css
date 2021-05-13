@@ -83,7 +83,6 @@ input[type="text"]{
 input[type="radio"]{
   box-sizing: border-box;
   appearance: none;
-  /* outline: none; */
   border: none;
   width: 16px;
   height: 16px;
@@ -101,10 +100,6 @@ input[type="checkbox"]:checked{
   background-color: #ccc ;  
 }
 
-input[type="radio"]:checked{
-  border-color: #0b76ef;
-  background-color: crimson;
-}
 
 
 
