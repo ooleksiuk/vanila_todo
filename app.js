@@ -1,50 +1,50 @@
-const array = ['blue', '#ffa400', 'green', 'red', '#00d669', '#530cff'];
+const array = [
+  'color-blue',
+  'color-orange',
+  'color-green',
+  'color-red',
+  'color-light-green',
+  'color-deep-blue ',
+];
 var id = 1;
-// Selectors
+
+// ******************* Selectors
 const todoInput = document.getElementById('input-text');
 // List of todo
 const itemContainer = document.getElementById('item-container');
+const radios = document.querySelectorAll('input[type="radio"]');
 
-// function addInput() {
-//   const newId = document.querySelectorAll('input').length;
-//   const oldValue = document.getElementById('firstInput').value;
+// ******************* Event Listeners
 
-//   if (oldValue === '555') {
-//     return createNewInput('---', newId);
-//   }
-
-//   const newValue =
-//     newId % 2 === 0 ? oldValue.toUpperCase() : oldValue.toLowerCase();
-
-//   createNewInput(newValue, newId);
-// }
-
-// function createNewInput(value, id) {
-//   const form = document.forms.taskForm;
-//   const newInput = document.createElement('input');
-//   newInput.type = 'text';
-//   newInput.value = value;
-//   newInput.id = id;
-//   form.appendChild(document.createElement('br'));
-//   form.appendChild(newInput);
-// }
-
+// ******************* Functions
 function addTodoItem() {
-  const color = checkColor();
+  // let radios = document.querySelectorAll('input[type="radio"]');
+
+  // for (const r of radios) {
+  //   contact[i].addEventListener('change', function () {
+  //     let val = this.value; // this == the clicked radio,
+  //     console.log(val);
+  //   });
+  // }
+
+  const colorClass = checkColor();
   const itemContent = todoInput.value;
 
   const checkbox = document.createElement('input');
+  checkbox.id = id;
   checkbox.type = 'checkbox';
   checkbox.addEventListener('click', itemCompleted);
 
   const checkboxDiv = document.createElement('div');
+  checkboxDiv.id = 'cb-div' + id;
   checkboxDiv.className = 'check-box';
-  checkboxDiv.setAttribute('style', `background-color:${color}`);
+  checkboxDiv.classList.add(colorClass);
   checkboxDiv.appendChild(checkbox);
 
   const label = document.createElement('label');
+  label.id = 'cb-label' + id;
   label.innerText = itemContent;
-  label.setAttribute('style', `background-color:${color}`);
+  label.classList.add(colorClass);
 
   const item = document.createElement('div');
   item.className = 'item';
@@ -52,6 +52,8 @@ function addTodoItem() {
   item.appendChild(label);
 
   itemContainer.appendChild(item);
+  id++;
+  todoInput.value = '';
 }
 
 function checkColor() {
@@ -59,7 +61,8 @@ function checkColor() {
   for (let r of radios) {
     if (r.checked) {
       r.checked = false;
-      return (color = r.style.backgroundColor);
+      // radios[radios.length - 1].checked = true;
+      return r.className;
     }
   }
   return (color = array[Math.floor(Math.random() * array.length)]);
@@ -67,22 +70,14 @@ function checkColor() {
 
 function itemCompleted(e) {
   const id = e.target.id;
-  const div = document.getElementById(id + 'item');
+  const checkboxDiv = document.getElementById('cb-div' + id);
+  const label = document.getElementById('cb-label' + id);
 
   if (e.target.checked) {
-    div.classList.add('completed-task');
+    checkboxDiv.classList.add('completed');
+    label.classList.add('completed');
   } else {
-    div.classList.remove('completed-task');
+    checkboxDiv.classList.remove('completed');
+    label.classList.remove('completed');
   }
-}
-
-function colorSelected(e) {
-  const radios = document.querySelectorAll('input[type="radio"]');
-  for (let r of radios) {
-    if (r.checked) {
-      r.checked = false;
-      return (color = r.style.backgroundColor);
-    }
-  }
-  return (color = array[Math.floor(Math.random() * array.length)]);
 }

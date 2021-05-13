@@ -9,18 +9,8 @@
   </head>
   <body>
     <div class="container">
-      <!-- <div class="item"> -->
       <h3>Your Todos</h3>
-      <!-- </div> -->
-      <div id="item-container">
-        <div class="item">
-          <div class="check-box">
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-          </div>
-          <label for="vehicle1"> I have a bike</label>
-          <!-- <div class="todo-text">I have a bike</div> -->
-        </div>
-      </div>
+      <div id="item-container"></div>
       <form class="item-main" onsubmit="addTodoItem(); return false;">
         <input
           type="text"
@@ -28,12 +18,12 @@
           id="input-text"
           class="add-input"
         />
-        <input type="radio" style="background-color: blue" id="r1"/>
-        <input type="radio" style="background-color: #ffa400" id="r2" />
-        <input type="radio" style="background-color: green" id="r3" />
-        <input type="radio" style="background-color: red" id="r4" />
-        <input type="radio" style="background-color: #00d669" id="r5" />
-        <input type="radio" style="background-color: #530cff" id="r6" />
+        <input type="radio" class="color-blue" id="r1" name="radios" />
+        <input type="radio" class="color-orange" id="r2" name="radios" />
+        <input type="radio" class="color-green" id="r3" name="radios" />
+        <input type="radio" class="color-red" id="r4" name="radios" />
+        <input type="radio" class="color-light-green" id="r5" name="radios" />
+        <input type="radio" class="color-deep-blue" id="r6" name="radios" />
         <button type="submit">Add</button>
       </form>
     </div>
