@@ -36,13 +36,13 @@ function addTodoItem() {
   checkbox.addEventListener('click', itemCompleted);
 
   const checkboxDiv = document.createElement('div');
-  checkboxDiv.id = 'cb-div' + id;
+  checkboxDiv.id = `cb-div${id}`;
   checkboxDiv.className = 'check-box';
   checkboxDiv.classList.add(colorClass);
   checkboxDiv.appendChild(checkbox);
 
   const label = document.createElement('label');
-  label.id = 'cb-label' + id;
+  label.id = `cb-label${id}`;
   label.innerText = itemContent;
   label.classList.add(colorClass);
 
@@ -58,21 +58,18 @@ function addTodoItem() {
 
 function checkColor() {
   const radio = document.querySelector('input[type="radio"]:checked');
-  // for (let r of radios) {
-  //   if (r.checked) {
-  //     r.checked = false;
-  //     // radios[radios.length - 1].checked = true;
-  //     return r.className;
-  //   }
-  // }
-  return (color = array[Math.floor(Math.random() * array.length)]);
+  if (radio) {
+    radio.checked = false;
+    return radio.className;
+  } else {
+    return array[Math.floor(Math.random() * array.length)];
+  }
 }
-// `cd-div${id}`
 
 function itemCompleted(e) {
   const id = e.target.id;
-  const checkboxDiv = document.getElementById('cb-div' + id);
-  const label = document.getElementById('cb-label' + id);
+  const checkboxDiv = document.getElementById(`cb-div${id}`);
+  const label = document.getElementById(`cb-label${id}`);
 
   if (e.target.checked) {
     checkboxDiv.classList.add('completed');
